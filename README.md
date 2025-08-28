@@ -20,3 +20,7 @@ Add the dependency in your `pubspec.yaml`:
 ```yaml
 dependencies:
   smart_app_update_flutter: ^1.0.0
+
+Demo here
+
+![Update Dialog Screenshot](assets/Screenshot_1756387828.png)
