@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:package_info_plus/package_info_plus.dart';
-import 'models/custom_update_version.dart';
-import 'ui/update_bottom_sheet.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:smart_app_update_flutter/smart_app_update.dart';
 
 /// App Update Manager
 /// Checks the latest app version from API, Play Store, or App Store.
@@ -13,8 +13,21 @@ class AppUpdateManager {
     // Uri? apiEndpoint,
     // required int totalMinutes,
     String? notes,
+    int? repeat_totalminutes = 60,
     bool forceUpdate = false,
   }) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String updateLaterDateTime = "";
+    try {
+      updateLaterDateTime = prefs.getString("current_date")!;
+    } catch (_) {}
+
+    if (updateLaterDateTime.isNotEmpty) {
+      // print(Utility.isHoursPassed(updateLaterDateTime, repeat_totalminutes!));
+      if (!Utility.isHoursPassed(updateLaterDateTime)) {
+        return;
+      }
+    }
     final info = await PackageInfo.fromPlatform();
     CustomUpdateVersion? data;
 
@@ -23,7 +36,9 @@ class AppUpdateManager {
 
       // Otherwise fetch from platform store
       if (Platform.isAndroid) {
-        data = await _fetchFromPlayStore(info.packageName);
+        data = await _fetchFromPlayStore(
+            'io.aperfectstay.aperfectstay_flutter_app');
+        // data = await _fetchFromPlayStore(info.packageName);
       } else if (Platform.isIOS) {
         data = await _fetchFromAppStore(info.packageName);
       }
@@ -49,14 +64,14 @@ class AppUpdateManager {
 
     // Show update dialog
     await UpdateBottomSheet.showUpdateDialog(
-        // ignore: use_build_context_synchronously
+      // ignore: use_build_context_synchronously
 
-        info.version,
-        data,
-        forceUpdate,
-        notes: notes
-        // totalMinutes,
-        );
+      info.version,
+      data,
+      forceUpdate,
+      notes: notes,
+      totalMinutes: repeat_totalminutes,
+    );
   }
 
   /// Proper semantic version comparison.

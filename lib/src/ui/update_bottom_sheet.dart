@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:smart_app_update_flutter/smart_app_update.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -11,9 +12,9 @@ class UpdateBottomSheet {
 
   static Future<void> showUpdateDialog(
       String currentVersion, CustomUpdateVersion newVersion, bool forceUpdate,
-      {String? notes}
+      {String? notes,
 
-      // int totalMinutes,
+      int? totalMinutes,}
       ) async {
     final info = await PackageInfo.fromPlatform();
     String? target = newVersion.redirectLink ?? '';
@@ -23,7 +24,7 @@ class UpdateBottomSheet {
     Get.bottomSheet(
       isDismissible: false,
       PopScope(
-  canPop:  false,
+        canPop: false,
         child: Container(
           width: Get.width,
           decoration: const BoxDecoration(
@@ -63,7 +64,7 @@ class UpdateBottomSheet {
                       notes,
                       style: TextStyle(
                         fontSize: Get.height * 0.018, // ✅ replaced SizeConfig
-                             color: Colors.black38,
+                        color: Colors.black38,
                       ),
                       textAlign: TextAlign.start,
                     )
@@ -109,6 +110,10 @@ class UpdateBottomSheet {
                   onPressed: () async {
                     if (Get.isBottomSheetOpen!) Get.back();
                     isUpdateDialogShowing.value = false;
+                    String currentDateTime = Utility.addHours(totalMinutes!);
+                    SharedPreferences prefs =
+                        await SharedPreferences.getInstance();
+                    await prefs.setString("current_date", currentDateTime);
                   },
                   child: const Text(
                     'Maybe Later',

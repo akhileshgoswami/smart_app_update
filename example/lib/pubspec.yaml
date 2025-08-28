@@ -10,13 +10,9 @@ dependencies:
     sdk: flutter
 
   smart_app_update_flutter:
-    # path: ../../  # Use local package for testing
+    path: ../../  # Use local package for testing
 
-  get: ^4.6.6
-  shared_preferences: ^2.2.0
-  package_info_plus: ^8.3.1
-  url_launcher: ^6.2.5
-  intl: ^0.18.1
+  get: ^4.6.61
 
 flutter:
   uses-material-design: true

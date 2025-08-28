@@ -1,15 +1,16 @@
+
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Utility {
   /// Checks if the given datetime has exceeded the specified minutes.
-  static bool isHoursPassed(String oldDateTime, int minutes) {
+  static bool isHoursPassed(String givenDateTime, {bool savedInUtc = true}) {
     try {
-      final oldTime = DateFormat("yyyy-MM-dd HH:mm:ss").parse(oldDateTime);
+      final dateTime = DateFormat("yyyy-MM-dd HH:mm:ss").parse(givenDateTime);
       final currentTime = DateTime.now();
-      return currentTime.difference(oldTime).inMinutes > minutes;
+      return currentTime.isAfter(dateTime); // true if the given time has passed
     } catch (e) {
-      return true; // Fallback: show update dialog if parsing fails
+      return true; // fallback if parsing fails
     }
   }
 
