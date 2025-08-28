@@ -23,8 +23,7 @@ class AppUpdateManager {
 
       // Otherwise fetch from platform store
       if (Platform.isAndroid) {
-        data = await _fetchFromPlayStore(
-            'io.aperfectstay.aperfectstay_flutter_app');
+        data = await _fetchFromPlayStore(info.packageName);
       } else if (Platform.isIOS) {
         data = await _fetchFromAppStore(info.packageName);
       }
@@ -111,7 +110,6 @@ class AppUpdateManager {
             'https://play.google.com/store/apps/details?id=$packageName',
       );
     } catch (e) {
-
       return null;
     }
   }
