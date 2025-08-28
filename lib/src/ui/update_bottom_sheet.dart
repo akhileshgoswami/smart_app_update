@@ -60,7 +60,7 @@ class UpdateBottomSheet {
               ),
               notes != null
                   ? Text(
-                      notes ?? '',
+                      notes,
                       style: TextStyle(
                         fontSize: Get.height * 0.018, // ✅ replaced SizeConfig
                              color: Colors.black38,

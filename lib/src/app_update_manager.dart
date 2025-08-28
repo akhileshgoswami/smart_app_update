@@ -99,7 +99,7 @@ class AppUpdateManager {
       // Improved and stable regex for extracting the version from embedded JSON
       final regexp = RegExp(r'\[\[\["(\d+(?:\.\d+)+)"\]\]');
       final match = regexp.firstMatch(body);
-      final found = match != null ? match.group(1) : null;
+      final found = match?.group(1);
 
       if (found == null || found.isEmpty) {
         return null;
