@@ -53,7 +53,7 @@ class UpdateBottomSheet {
                 'Please update it now.',
                 style: TextStyle(
                   fontSize: Get.height * 0.018, // ✅ replaced SizeConfig
-                  color: Colors.black.withOpacity(0.6),
+                  color: Colors.black38,
                 ),
                 textAlign: TextAlign.start,
               ),
@@ -62,7 +62,7 @@ class UpdateBottomSheet {
                       notes ?? '',
                       style: TextStyle(
                         fontSize: Get.height * 0.018, // ✅ replaced SizeConfig
-                        color: Colors.black.withOpacity(0.6),
+                             color: Colors.black38,
                       ),
                       textAlign: TextAlign.start,
                     )
