@@ -1,0 +1,22 @@
+name: smart_app_update_example
+description: Example app to test smart_app_update package
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  smart_app_update:
+    path: ../../  # Use local package for testing
+
+  get: ^4.6.6
+  shared_preferences: ^2.2.0
+  package_info_plus: ^8.3.1
+  url_launcher: ^6.2.5
+  intl: ^0.18.1
+
+flutter:
+  uses-material-design: true
