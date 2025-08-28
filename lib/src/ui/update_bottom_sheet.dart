@@ -1,4 +1,6 @@
 
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -73,7 +75,7 @@ class UpdateBottomSheet {
               // Update button
               GestureDetector(
                 onTap: () async {
-                  if (Get.isBottomSheetOpen) Get.back();
+                  if (Get.isBottomSheetOpen!) Get.back();
                   isUpdateDialogShowing.value = false;
 
                   if (target.isEmpty) return;
@@ -106,7 +108,7 @@ class UpdateBottomSheet {
               if (!forceUpdate)
                 TextButton(
                   onPressed: () async {
-                    if (Get.isBottomSheetOpen) Get.back();
+                    if (Get.isBottomSheetOpen!) Get.back();
                     isUpdateDialogShowing.value = false;
                   },
                   child: const Text(
