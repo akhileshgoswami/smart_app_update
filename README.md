@@ -1,5 +1,10 @@
 # smart_app_update_flutter
 
+## Demo
+
+![Update Dialog Screenshot](https://github.com/akhileshgoswami/smart_app_update/raw/main/example/lib/assets/screenshots/Screenshot_1756387828.png)
+
+
 A lightweight Flutter package to check for app updates from **Google Play Store** and **Apple App Store**.  
 Supports **force update**, **soft update**, and **customizable dialogs**.
 
