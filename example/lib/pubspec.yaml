@@ -10,7 +10,7 @@ dependencies:
     sdk: flutter
 
   smart_app_update_flutter:
-    path: ../../  # Use local package for testing
+    # path: ../../  # Use local package for testing
 
   get: ^4.6.6
   shared_preferences: ^2.2.0

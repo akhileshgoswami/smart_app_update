@@ -235,10 +235,11 @@ packages:
   smart_app_update_flutter:
     dependency: "direct main"
     description:
-      path: "../.."
-      relative: true
-    source: path
-    version: "0.0.1"
+      name: smart_app_update_flutter
+      sha256: b8468d2682b45362310f363bfa237ce5a59fa45e3a3f886a21c272eb16e4c325
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   source_span:
     dependency: transitive
     description:
