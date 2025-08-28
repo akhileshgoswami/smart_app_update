@@ -73,7 +73,7 @@ class UpdateBottomSheet {
               // Update button
               GestureDetector(
                 onTap: () async {
-                  if (Get.isBottomSheetOpen ?? false) Get.back();
+                  if (Get.isBottomSheetOpen) Get.back();
                   isUpdateDialogShowing.value = false;
 
                   if (target.isEmpty) return;
@@ -106,7 +106,7 @@ class UpdateBottomSheet {
               if (!forceUpdate)
                 TextButton(
                   onPressed: () async {
-                    if (Get.isBottomSheetOpen ?? false) Get.back();
+                    if (Get.isBottomSheetOpen) Get.back();
                     isUpdateDialogShowing.value = false;
                   },
                   child: const Text(
