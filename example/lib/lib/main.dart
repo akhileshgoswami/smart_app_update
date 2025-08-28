@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:smart_app_update/src/app_update_manager.dart';
-import 'package:smart_app_update/src/ui/update_bottom_sheet.dart';
-import 'package:smart_app_update/smart_app_update.dart';
+import 'package:smart_app_update_flutter/src/app_update_manager.dart';
+import 'package:smart_app_update_flutter/src/ui/update_bottom_sheet.dart';
+import 'package:smart_app_update_flutter/smart_app_update_flutter.dart';
 
 void main() {
   runApp(const MyApp());

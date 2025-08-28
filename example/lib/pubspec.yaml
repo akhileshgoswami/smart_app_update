@@ -1,5 +1,5 @@
-name: smart_app_update_example
-description: Example app to test smart_app_update package
+name: smart_app_update_flutter_example
+description: Example app to test smart_app_update_flutter package
 publish_to: 'none'
 
 environment:
@@ -9,7 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  smart_app_update:
+  smart_app_update_flutter:
     path: ../../  # Use local package for testing
 
   get: ^4.6.6

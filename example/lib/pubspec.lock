@@ -232,7 +232,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  smart_app_update:
+  smart_app_update_flutter:
     dependency: "direct main"
     description:
       path: "../.."
