@@ -17,7 +17,6 @@ class AppUpdateManager {
     String? notes,
     bool forceUpdate = false,
   }) async {
-    final prefs = await SharedPreferences.getInstance();
     final info = await PackageInfo.fromPlatform();
     CustomUpdateVersion? data;
 
@@ -31,7 +30,7 @@ class AppUpdateManager {
       } else if (Platform.isIOS) {
         data = await _fetchFromAppStore(info.packageName);
       }
-    } catch (e, s) {
+    } catch (e) {
       return;
     }
 
@@ -113,7 +112,8 @@ class AppUpdateManager {
         redirectLink:
             'https://play.google.com/store/apps/details?id=$packageName',
       );
-    } catch (e, s) {
+    } catch (e) {
+
       return null;
     }
   }
@@ -141,7 +141,7 @@ class AppUpdateManager {
         newVersion: latestVersion,
         redirectLink: trackViewUrl,
       );
-    } catch (e, s) {
+    } catch (e) {
       return null;
     }
   }

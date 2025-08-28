@@ -23,8 +23,8 @@ class UpdateBottomSheet {
 
     Get.bottomSheet(
       isDismissible: false,
-      WillPopScope(
-       onWillPop: () async => false,
+      PopScope(
+  canPop:  false,
         child: Container(
           width: Get.width,
           decoration: const BoxDecoration(
