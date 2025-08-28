@@ -1,4 +1,6 @@
 
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:smart_app_update/src/app_update_manager.dart';
 import 'package:smart_app_update/src/ui/update_bottom_sheet.dart';
