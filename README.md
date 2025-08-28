@@ -23,4 +23,7 @@ dependencies:
 
 Demo here
 
-![Update Dialog Screenshot](assets/Screenshot_1756387828.png)
+Demo here
+
+![Update Dialog Screenshot](https://github.com/akhileshgoswami/smart_app_update/raw/main/assets/Screenshot_1756387828.png)
+
