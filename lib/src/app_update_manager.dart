@@ -21,6 +21,7 @@ class AppUpdateManager {
     if (testDebuge) {
       if (kDebugMode) {
         UpdateBottomSheet.testdialog();
+        return;
       }
     }
 
