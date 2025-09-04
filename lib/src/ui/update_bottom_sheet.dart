@@ -11,11 +11,12 @@ class UpdateBottomSheet {
   static RxBool isUpdateDialogShowing = false.obs;
 
   static Future<void> showUpdateDialog(
-      String currentVersion, CustomUpdateVersion newVersion, bool forceUpdate,
-      {String? notes,
-
-      int? totalMinutes,}
-      ) async {
+    String currentVersion,
+    CustomUpdateVersion newVersion,
+    bool forceUpdate, {
+    String? notes,
+    int? totalMinutes,
+  }) async {
     final info = await PackageInfo.fromPlatform();
     String? target = newVersion.redirectLink ?? '';
 
@@ -134,5 +135,79 @@ class UpdateBottomSheet {
     ).then((_) {
       isUpdateDialogShowing.value = false;
     });
+  }
+
+  static Future<void> testdialog() {
+    return Get.bottomSheet(
+      isDismissible: true,
+      PopScope(
+        canPop: false,
+        child: Container(
+          width: Get.width,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
+          padding: EdgeInsets.all(Get.width * 0.05), // ✅ replaced SizeConfig
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Title
+              Text(
+                "Update Available!",
+                style: TextStyle(
+                  fontSize: Get.height * 0.03, // ✅ replaced SizeConfig
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 12),
+
+              // Message
+              Text(
+                'Smart App Update has been successfully configured.',
+                style: TextStyle(
+                  fontSize: Get.height * 0.018, // ✅ replaced SizeConfig
+                  color: Colors.black38,
+                ),
+                textAlign: TextAlign.start,
+              ),
+
+              const SizedBox(height: 10),
+              const Divider(),
+
+              // Update button
+              GestureDetector(
+                onTap: () async {
+                  Get.back();
+                },
+                child: Container(
+                  height: Get.height * 0.055, // ✅ dynamic height
+                  width: Get.width,
+                  margin: const EdgeInsets.only(top: 20),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.red,
+                  ),
+                  child: const Text(
+                    "Close",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35),
+      ),
+    );
   }
 }

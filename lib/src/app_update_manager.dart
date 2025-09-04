@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,13 +10,20 @@ import 'package:smart_app_update_flutter/smart_app_update.dart';
 /// Checks the latest app version from API, Play Store, or App Store.
 class AppUpdateManager {
   /// Main entry point for checking and prompting app updates.
-  static Future<void> checkAndPrompt({
-    // Uri? apiEndpoint,
-    // required int totalMinutes,
-    String? notes,
-    int? repeat_totalminutes = 60,
-    bool forceUpdate = false,
-  }) async {
+  static Future<void> checkAndPrompt(
+      {
+      // Uri? apiEndpoint,
+      // required int totalMinutes,
+      String? notes,
+      int? repeat_totalminutes = 60,
+      bool forceUpdate = false,
+      bool testDebuge = false}) async {
+    if (testDebuge) {
+      if (kDebugMode) {
+        UpdateBottomSheet.testdialog();
+      }
+    }
+
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String updateLaterDateTime = "";
     try {
@@ -36,7 +44,6 @@ class AppUpdateManager {
 
       // Otherwise fetch from platform store
       if (Platform.isAndroid) {
- 
         data = await _fetchFromPlayStore(info.packageName);
       } else if (Platform.isIOS) {
         data = await _fetchFromAppStore(info.packageName);

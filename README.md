@@ -20,9 +20,12 @@ Supports **force update**, **soft update**, and **customizable dialogs**.
 
 ## 🚀 Installation
 
+for checking if your app is live on play store or app store downgrade your project version you can see update dialog for test only this is working or not if you app is not on play store and not on app store you can't see the dialog
+but now i'm adding to see as pas for debug only you can see confirmation 
+
 Add the dependency in your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  smart_app_update_flutter: ^1.0.0
+  smart_app_update_flutter: ^1.0.8
 
