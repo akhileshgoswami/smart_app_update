@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:smart_app_update_flutter/smart_app_update.dart';
+import 'package:smart_app_update_flutter/smart_app_update_flutter.dart';
 
 /// App Update Manager
 /// Checks the latest app version from API, Play Store, or App Store.
