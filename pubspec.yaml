@@ -3,9 +3,9 @@ description: >
   A Flutter package to check app updates from the Google Play Store and Apple App Store.
   Supports force update, soft update, and customizable update dialogs.
 version: 1.0.8
-homepage: https://github.com/akhileshgoswami/smart_app_update
-repository: https://github.com/akhileshgoswami/smart_app_update
-issue_tracker: https://github.com/akhileshgoswami/smart_app_update/issues
+homepage: https://github.com/akhileshgoswami/smart_app_update_flutter
+repository: https://github.com/akhileshgoswami/smart_app_update_flutter
+issue_tracker: https://github.com/akhileshgoswami/smart_app_update_flutter/issues
 
 environment:
   sdk: '>=2.18.2 <4.0.0'
